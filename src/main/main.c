@@ -159,8 +159,10 @@ int	main(int argc, char **argv)
 		pb(&a, &b);
 	else if (a.size <= 5)
 		sa(&a);
-	else
+	else if (a.size <= 6)
 		ra(&a);
+    else 
+        rra(&a);
 
 	print_stack(&a, 'a');
 	print_stack(&b, 'b');
