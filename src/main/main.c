@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void	init_stack(t_stack *stack)
+void	init_stack(t_stack *stack, int size)
 {
-	stack->top = NULL;
-	stack->size = 0;
+    stack->top = NULL;
+    stack->size = size;
 }
 
 void	push(t_stack *stack, int value)
@@ -122,36 +122,51 @@ void	print_stack(t_stack *stack, char stack_name)
 	printf("\n");
 }
 
+int	is_sorted(t_stack *stack)
+{
+    t_node	*current;
+
+    current = stack->top;
+    while (current && current->next)
+    {
+        if (current->value > current->next->value)
+            return (0);
+        current = current->next;
+    }
+    return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack a;
 	t_stack b;
 	int i;
 
-	if (argc == 1)
+	if (argc < 2)// 引数が0or1
 		return (0);
-	init_stack(&a);
-	init_stack(&b);
+	init_stack(&a, len(argc) - 1);
+	init_stack(&b, 0);
 	i = argc - 1;
 	while (i > 0)
 	{
-		if (!is_valid_integer(argv[i]))
+		if (!is_valid_integer(argv[i]))// 整数ではない
 		{
 			write(2, "Error\n", 6);
 			free_stack(&a);
 			free_stack(&b);
 			return (1);
 		}
-		push(&a, ft_atoi(argv[i]));
+		push(&a, ft_atoi(argv[i]));// int外
 		i--;
 	}
-	if (has_duplicates(&a))
+	if (has_duplicates(&a))// 重複
 	{
 		write(2, "Error\n", 6);
 		free_stack(&a);
 		free_stack(&b);
 		return (1);
 	}
+    if (!is_sorted(&a))// ソート済み
     print_stack(&a, 'a');
     print_stack(&b, 'b');
     printf("--------------------\n");
