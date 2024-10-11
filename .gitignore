@@ -4,3 +4,4 @@
 *.history
 .DS_Store
 push_swap
+*.sh
