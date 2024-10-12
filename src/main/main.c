@@ -144,7 +144,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)// 引数が0or1
 		return (0);
-	init_stack(&a, len(argc) - 1);
+	init_stack(&a, argc - 1);
 	init_stack(&b, 0);
 	i = argc - 1;
 	while (i > 0)
