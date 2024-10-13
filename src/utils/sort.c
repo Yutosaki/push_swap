@@ -24,8 +24,8 @@ void	radix_sort(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
-	int size;
-	int max_bits;
+	int	size;
+	int	max_bits;
 
 	i = 0;
 	size = a->size;
