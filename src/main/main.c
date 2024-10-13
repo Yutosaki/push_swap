@@ -136,6 +136,69 @@ int	is_sorted(t_stack *stack)
     return (1);
 }
 
+t_node **list_to_array(t_stack *stack)
+{
+	t_node **array;
+	t_node *current;
+	int i;
+
+	if (stack->size == 0)
+		return (NULL);
+	array = (t_node **)malloc(sizeof(t_node *) * stack->size);
+	if (!array)
+		return (NULL);
+	current = stack->top;
+	i = 0;
+	while (current && i < stack->size)
+	{
+		array[i] = current;
+		current = current->next;
+		i++;
+	}
+
+	return (array);
+}
+
+void	sort_array(t_node **array, int size)
+{
+	int i;
+	int j;
+	t_node *temp;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (array[j]->value > array[j + 1]->value)
+			{
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+void link_array_to_list(t_node **array, int size)
+{
+	int i;
+
+	i = 0;
+	while(i < size)
+	{
+		// array[i]->next = array[i + 1];
+		array[i]->value = i;
+		i++;
+	}
+	// array[size - 1]->next = NULL;
+	// array[size - 1]->value = size - 1;
+	// stack->top = array[0];
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack a;
@@ -144,7 +207,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)// 引数が0or1
 		return (0);
-	init_stack(&a, argc - 1);
+	init_stack(&a, 0);
 	init_stack(&b, 0);
 	i = argc - 1;
 	while (i > 0)
@@ -167,22 +230,36 @@ int	main(int argc, char **argv)
 		return (1);
 	}
     if (!is_sorted(&a))// ソート済み
+
     print_stack(&a, 'a');
     print_stack(&b, 'b');
     printf("--------------------\n");
-	if (a.size <= 3)
-		pb(&a, &b);
-	else if (a.size <= 5)
-		sa(&a);
-	else if (a.size <= 6)
-		ra(&a);
-    else 
-        rra(&a);
 
+	t_node **array;
+
+	printf("size: %d\n", a.size);
+	array = list_to_array(&a);
+
+	printf("array: ");
+	for (int i = 0; i < a.size; i++)
+		printf("%d ", array[i]->value);
+	printf("\n");
+
+	sort_array(array, a.size);
+
+	printf("sorted array: ");
+	for (int i = 0; i < a.size; i++)
+		printf("%d ", array[i]->value);
+	printf("\n");
+
+	link_array_to_list( array, a.size);
+
+	printf("compressed:\n");
 	print_stack(&a, 'a');
 	print_stack(&b, 'b');
 
 	free_stack(&a);
 	free_stack(&b);
+	free(array);
 	return (0);
 }
