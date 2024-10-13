@@ -2,7 +2,9 @@
 # define PUSH_SWAP_H
 // #include "../libft.h"
 # include <stdio.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
+#include <limits.h>
 
 typedef struct s_node
 {
@@ -39,5 +41,7 @@ int					has_duplicates(t_stack *stack);
 void				link_array_to_list(t_node **array, int size);
 t_node				**list_to_array(t_stack *stack);
 void				sort_array(t_node **array, int size);
+int					get_max_bit(t_stack *stack);
+void				radix_sort(t_stack *a, t_stack *b);
 
 #endif // PUSH_SWAP_H

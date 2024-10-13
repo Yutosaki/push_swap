@@ -10,6 +10,10 @@ SRCS = src/main/main.c \
 	   src/instractions/reverse.c\
 	   src/instractions/rotate.c\
 	   src/instractions/swap.c\
+	   src/utils/sort.c\
+	   src/utils/stack.c\
+	   src/utils/validate.c\
+	   src/error/errorcase.c\
 
 
 OBJS = $(SRCS:.c=.o)
