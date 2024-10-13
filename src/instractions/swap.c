@@ -10,6 +10,7 @@ void	sa(t_stack *a)
 	a->top = a->top->next;
 	tmp->next = a->top->next;
 	a->top->next = tmp;
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *b)
@@ -22,10 +23,12 @@ void	sb(t_stack *b)
 	b->top = b->top->next;
 	tmp->next = b->top->next;
 	b->top->next = tmp;
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);
+	write(1, "ss\n", 3);
 }

@@ -12,6 +12,7 @@ void	pa(t_stack *a, t_stack *b)
 	a->top = tmp;
 	a->size++;
 	b->size--;
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -26,4 +27,5 @@ void	pb(t_stack *a, t_stack *b)
 	b->top = tmp;
 	a->size--;
 	b->size++;
+	write(1, "pb\n", 3);
 }
