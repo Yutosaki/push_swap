@@ -218,12 +218,16 @@ void	radix_sort(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
+	int size;
+	int max_bits;
 
 	i = 0;
-	while (i < get_max_bit(a))
+	size = a->size;
+	max_bits = get_max_bit(a);
+	while (i < max_bits)
 	{
 		j = 0;
-		while (j < a->size)
+		while (j < size)
 		{
 			if ((a->top->value >> i) & 1)
 				ra(a);
@@ -269,30 +273,31 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (is_sorted(&a)) // ソート済み ソートされてたら1が返却
-		return (0);
+	    return (0);
+
 	print_stack(&a, 'a');
-	print_stack(&b, 'b');
 	printf("--------------------\n");
-	printf("size: %d\n", a.size);
+
 	array = list_to_array(&a);
 	printf("array: ");
 	for (int i = 0; i < a.size; i++)
 		printf("%d ", array[i]->value);
 	printf("\n");
+
 	sort_array(array, a.size);
 	printf("sorted array: ");
 	for (int i = 0; i < a.size; i++)
 		printf("%d ", array[i]->value);
 	printf("\n");
+
 	link_array_to_list(array, a.size);
 	printf("compressed:\n");
 	print_stack(&a, 'a');
-	print_stack(&b, 'b');
-	printf("max bit: %d\n", get_max_bit(&a));
+
 	printf("--------------------\n");
 	radix_sort(&a, &b);
 	print_stack(&a, 'a');
-	print_stack(&b, 'b');
+
 	free_stack(&a);
 	free_stack(&b);
 	free(array);
