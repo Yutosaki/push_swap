@@ -27,4 +27,16 @@ void				rra(t_stack *a);
 void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
 
+void				init_stack(t_stack *stack, int size);
+void				push(t_stack *stack, int value);
+int					pop(t_stack *stack);
+void				free_stack(t_stack *stack);
+int					is_valid_integer(char *str);
+int					ft_atoi(char *str);
+int					is_sorted(t_stack *stack);
+int					has_duplicates(t_stack *stack);
+void				link_array_to_list(t_node **array, int size);
+t_node				**list_to_array(t_stack *stack);
+void				sort_array(t_node **array, int size);
+
 #endif // PUSH_SWAP_H

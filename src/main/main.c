@@ -6,8 +6,8 @@
 
 void	init_stack(t_stack *stack, int size)
 {
-    stack->top = NULL;
-    stack->size = size;
+	stack->top = NULL;
+	stack->size = size;
 }
 
 void	push(t_stack *stack, int value)
@@ -124,23 +124,23 @@ void	print_stack(t_stack *stack, char stack_name)
 
 int	is_sorted(t_stack *stack)
 {
-    t_node	*current;
+	t_node	*current;
 
-    current = stack->top;
-    while (current && current->next)
-    {
-        if (current->value > current->next->value)
-            return (0);
-        current = current->next;
-    }
-    return (1);
+	current = stack->top;
+	while (current && current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }
 
-t_node **list_to_array(t_stack *stack)
+t_node	**list_to_array(t_stack *stack)
 {
-	t_node **array;
-	t_node *current;
-	int i;
+	t_node	**array;
+	t_node	*current;
+	int		i;
 
 	if (stack->size == 0)
 		return (NULL);
@@ -155,15 +155,14 @@ t_node **list_to_array(t_stack *stack)
 		current = current->next;
 		i++;
 	}
-
 	return (array);
 }
 
 void	sort_array(t_node **array, int size)
 {
-	int i;
-	int j;
-	t_node *temp;
+	int		i;
+	int		j;
+	t_node	*temp;
 
 	i = 0;
 	while (i < size - 1)
@@ -183,12 +182,12 @@ void	sort_array(t_node **array, int size)
 	}
 }
 
-void link_array_to_list(t_node **array, int size)
+void	link_array_to_list(t_node **array, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < size)
+	while (i < size)
 	{
 		array[i]->value = i;
 		i++;
@@ -197,63 +196,54 @@ void link_array_to_list(t_node **array, int size)
 
 int	main(int argc, char **argv)
 {
-	t_stack a;
-	t_stack b;
-	int i;
+	t_stack	a;
+	t_stack	b;
+	int		i;
+	t_node	**array;
 
-	if (argc < 2)// 引数が0or1
+	if (argc < 2) // 引数が0or1
 		return (0);
 	init_stack(&a, 0);
 	init_stack(&b, 0);
 	i = argc - 1;
 	while (i > 0)
 	{
-		if (!is_valid_integer(argv[i]))// 整数ではない
+		if (!is_valid_integer(argv[i])) // 整数ではない
 		{
 			write(2, "Error\n", 6);
 			free_stack(&a);
 			free_stack(&b);
 			return (1);
 		}
-		push(&a, ft_atoi(argv[i]));// int外
+		push(&a, ft_atoi(argv[i])); // int外
 		i--;
 	}
-	if (has_duplicates(&a))// 重複
+	if (has_duplicates(&a)) // 重複
 	{
 		write(2, "Error\n", 6);
 		free_stack(&a);
 		free_stack(&b);
 		return (1);
 	}
-    if (!is_sorted(&a))// ソート済み
-
-    print_stack(&a, 'a');
-    print_stack(&b, 'b');
-    printf("--------------------\n");
-
-	t_node **array;
-
+	if (!is_sorted(&a)) // ソート済み
+		print_stack(&a, 'a');
+	print_stack(&b, 'b');
+	printf("--------------------\n");
 	printf("size: %d\n", a.size);
 	array = list_to_array(&a);
-
 	printf("array: ");
 	for (int i = 0; i < a.size; i++)
 		printf("%d ", array[i]->value);
 	printf("\n");
-
 	sort_array(array, a.size);
-
 	printf("sorted array: ");
 	for (int i = 0; i < a.size; i++)
 		printf("%d ", array[i]->value);
 	printf("\n");
-
-	link_array_to_list( array, a.size);
-
+	link_array_to_list(array, a.size);
 	printf("compressed:\n");
 	print_stack(&a, 'a');
 	print_stack(&b, 'b');
-
 	free_stack(&a);
 	free_stack(&b);
 	free(array);
