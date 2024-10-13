@@ -194,33 +194,33 @@ void	link_array_to_list(t_node **array, int size)
 	}
 }
 
-int get_max_bit(t_stack *stack)
+int	get_max_bit(t_stack *stack)
 {
-	int max;
-	int max_bits;
+	int		max;
+	int		max_bits;
+	t_node	*current;
 
 	max = 0;
-	t_node *current = stack->top;
+	current = stack->top;
 	while (current)
 	{
 		if (current->value > max)
 			max = current->value;
 		current = current->next;
 	}
-
 	max_bits = 0;
 	while ((max >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
 }
 
-void radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while(i < get_max_bit(a))
+	while (i < get_max_bit(a))
 	{
 		j = 0;
 		while (j < a->size)
@@ -269,37 +269,30 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	if (is_sorted(&a)) // ソート済み ソートされてたら1が返却
-	    return (0);
-
+		return (0);
 	print_stack(&a, 'a');
 	print_stack(&b, 'b');
 	printf("--------------------\n");
 	printf("size: %d\n", a.size);
-
 	array = list_to_array(&a);
 	printf("array: ");
 	for (int i = 0; i < a.size; i++)
 		printf("%d ", array[i]->value);
 	printf("\n");
-
 	sort_array(array, a.size);
 	printf("sorted array: ");
 	for (int i = 0; i < a.size; i++)
 		printf("%d ", array[i]->value);
 	printf("\n");
-
 	link_array_to_list(array, a.size);
 	printf("compressed:\n");
 	print_stack(&a, 'a');
 	print_stack(&b, 'b');
-
 	printf("max bit: %d\n", get_max_bit(&a));
-
 	printf("--------------------\n");
 	radix_sort(&a, &b);
 	print_stack(&a, 'a');
 	print_stack(&b, 'b');
-
 	free_stack(&a);
 	free_stack(&b);
 	free(array);
