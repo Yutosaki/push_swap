@@ -6,7 +6,7 @@
 /*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:54 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/10/13 21:11:58 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/10/13 21:31:28 by sasakiyuto       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,24 +59,10 @@ int	main(int argc, char **argv)
 	}
 	if (is_sorted(&a)) // ソート済み ソートされてたら1が返却
 		return (0);
-	print_stack(&a, 'a');
-	printf("--------------------\n");
 	array = list_to_array(&a);
-	printf("array: ");
-	for (int i = 0; i < a.size; i++)
-		printf("%d ", array[i]->value);
-	printf("\n");
 	sort_array(array, a.size);
-	printf("sorted array: ");
-	for (int i = 0; i < a.size; i++)
-		printf("%d ", array[i]->value);
-	printf("\n");
 	link_array_to_list(array, a.size);
-	printf("compressed:\n");
-	print_stack(&a, 'a');
-	printf("--------------------\n");
 	radix_sort(&a, &b);
-	print_stack(&a, 'a');
 	free_stack(&a);
 	free_stack(&b);
 	free(array);
