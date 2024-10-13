@@ -190,13 +190,9 @@ void link_array_to_list(t_node **array, int size)
 	i = 0;
 	while(i < size)
 	{
-		// array[i]->next = array[i + 1];
 		array[i]->value = i;
 		i++;
 	}
-	// array[size - 1]->next = NULL;
-	// array[size - 1]->value = size - 1;
-	// stack->top = array[0];
 }
 
 int	main(int argc, char **argv)
