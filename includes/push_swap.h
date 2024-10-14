@@ -6,7 +6,7 @@
 /*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:39 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/10/13 21:11:15 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/10/14 17:56:21 by sasakiyuto       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ t_node				**list_to_array(t_stack *stack);
 void				sort_array(t_node **array, int size);
 int					get_max_bit(t_stack *stack);
 void				radix_sort(t_stack *a, t_stack *b);
+void				execute_error(t_stack *a, t_stack *b);
+int					check_error(t_stack *a, t_stack *b, char **argv, int argc);
 
 #endif // PUSH_SWAP_H

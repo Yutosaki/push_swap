@@ -6,7 +6,7 @@
 /*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:11:05 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/10/13 21:11:06 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/10/14 18:02:10 by sasakiyuto       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_atoi(char *str)
 		num = num * 10 + (*str - '0');
 		str++;
 	}
-	return (int)(sign * num);
+	return ((int)(sign * num));
 }
 
 t_node	**list_to_array(t_stack *stack)
