@@ -1,5 +1,6 @@
 # ToDo
-- [ ] norminette直す
+- [x] norminette直す
+- [ ] ./checker_linux が動かない
 
 # 疑問点
 - 何故座標圧縮するのか
