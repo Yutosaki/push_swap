@@ -6,7 +6,7 @@
 /*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:37 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/10/13 21:10:38 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/10/15 11:25:29 by sasakiyuto       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	is_valid_integer(char *str)
 	{
 		sign = -1;
 		str++;
+		if (*str == '0' || *str == '\0')
+			return 0;
 	}
 	while (*str)
 	{
