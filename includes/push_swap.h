@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:39 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/11/09 17:03:06 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/11/09 20:15:47 by sasakiyuto       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ void				execute_error(t_stack *a, t_stack *b);
 int					check_error(t_stack *a, t_stack *b, char **argv, int argc);
 void				sort_2(t_stack *a);
 void				sort_3(t_stack *a);
-void sort_4(t_stack *a, t_stack *b);
+void				sort_4(t_stack *a, t_stack *b);
 void				sort_5(t_stack *a, t_stack *b);
-// int					ft_len(t_stack *a);
 
 #endif // PUSH_SWAP_H

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:54 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/11/09 20:12:37 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/11/09 20:15:40 by sasakiyuto       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,23 @@ void	execute_error(t_stack *a, t_stack *b)
 	free_stack(b);
 }
 
-int small_case(t_stack *a, t_stack *b)
+int	small_case(t_stack *a, t_stack *b)
 {
 	if (a->size == 2)
 	{
 		printf("a->top->value = %d\n", a->top->value);
 		printf("a->top->next->value = %d\n", a->top->next->value);
 		sort_2(a);
-	}else if (a->size == 3)
+	}
+	else if (a->size == 3)
 	{
 		sort_3(a);
-	}else if (a->size == 4)
+	}
+	else if (a->size == 4)
 	{
 		sort_4(a, b);
-	}else if (a->size == 5)
+	}
+	else if (a->size == 5)
 	{
 		sort_5(a, b);
 	}
