@@ -6,7 +6,7 @@
 /*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:54 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/11/09 21:07:07 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/11/09 21:24:01 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ void	execute_error(t_stack *a, t_stack *b)
 int	small_case(t_stack *a, t_stack *b)
 {
 	if (a->size == 2)
-	{
-		printf("a->top->value = %d\n", a->top->value);
-		printf("a->top->next->value = %d\n", a->top->next->value);
 		sort_2(a);
-	}
 	else if (a->size == 3)
 		sort_3(a);
 	else if (a->size == 4)
