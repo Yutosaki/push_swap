@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:02:50 by yutsasak          #+#    #+#             */
-/*   Updated: 2024/11/09 20:16:32 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/11/09 20:45:50 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	sort_4(t_stack *a, t_stack *b)
 
 void	sort_5(t_stack *a, t_stack *b)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	pb(a, b);
