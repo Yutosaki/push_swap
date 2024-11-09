@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:54 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/10/14 18:01:34 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/11/09 20:12:37 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,28 @@ void	execute_error(t_stack *a, t_stack *b)
 	free_stack(b);
 }
 
+int small_case(t_stack *a, t_stack *b)
+{
+	if (a->size == 2)
+	{
+		printf("a->top->value = %d\n", a->top->value);
+		printf("a->top->next->value = %d\n", a->top->next->value);
+		sort_2(a);
+	}else if (a->size == 3)
+	{
+		sort_3(a);
+	}else if (a->size == 4)
+	{
+		sort_4(a, b);
+	}else if (a->size == 5)
+	{
+		sort_5(a, b);
+	}
+	free_stack(a);
+	free_stack(b);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	a;
@@ -63,6 +85,11 @@ int	main(int argc, char **argv)
 	array = list_to_array(&a);
 	sort_array(array, a.size);
 	link_array_to_list(array, a.size);
+	if (argc <= 6)
+	{
+		free(array);
+		return (small_case(&a, &b));
+	}
 	radix_sort(&a, &b);
 	free_stack(&a);
 	free_stack(&b);

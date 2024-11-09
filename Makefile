@@ -13,6 +13,7 @@ SRCS = src/main/main.c \
 	   src/utils/sort.c\
 	   src/utils/stack.c\
 	   src/utils/validate.c\
+	   src/utils/sort_small.c\
 	   src/error/errorcase.c
 
 OBJS = $(SRCS:.c=.o)
