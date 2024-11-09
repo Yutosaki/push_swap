@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:54 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/11/09 20:15:40 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/11/09 21:07:07 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,11 @@ int	small_case(t_stack *a, t_stack *b)
 		sort_2(a);
 	}
 	else if (a->size == 3)
-	{
 		sort_3(a);
-	}
 	else if (a->size == 4)
-	{
 		sort_4(a, b);
-	}
 	else if (a->size == 5)
-	{
 		sort_5(a, b);
-	}
 	free_stack(a);
 	free_stack(b);
 	return (0);
