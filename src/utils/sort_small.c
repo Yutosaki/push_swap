@@ -6,7 +6,7 @@
 /*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:02:50 by yutsasak          #+#    #+#             */
-/*   Updated: 2024/11/09 20:45:50 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/11/10 11:48:42 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	sort_4(t_stack *a, t_stack *b)
 {
 	int	i;
 
+	if (a->top == NULL)
+		return ;
 	i = 0;
 	pb(a, b);
 	sort_3(a);
@@ -66,6 +68,8 @@ void	sort_5(t_stack *a, t_stack *b)
 {
 	int	i;
 
+	if (a->top == NULL || a->top->next == NULL)
+		return ;
 	i = 0;
 	pb(a, b);
 	pb(a, b);

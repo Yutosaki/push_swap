@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:39 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/11/09 20:15:47 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/11/10 11:47:18 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-// #include "../libft.h"
+
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
