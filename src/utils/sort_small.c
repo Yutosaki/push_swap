@@ -6,7 +6,7 @@
 /*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:02:50 by yutsasak          #+#    #+#             */
-/*   Updated: 2024/11/10 11:48:42 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:56:20 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,50 +42,52 @@ void	sort_3(t_stack *a)
 
 void	sort_4(t_stack *a, t_stack *b)
 {
-	int	i;
+	t_node	*current;
 
 	if (a->top == NULL)
 		return ;
-	i = 0;
 	pb(a, b);
 	sort_3(a);
-	while (i < 4)
+	while (is_perfectly_sorted(a, 4) == 0)
 	{
 		if (b->top == NULL)
 			rra(a);
 		else
 		{
-			if ((a->top->value) - 1 == b->top->value)
+			current = a->top;
+			while (current->next)
+				current = current->next;
+			if (current->value < b->top->value || a->top->value - 1 == b->top->value)
 				pa(a, b);
 			else
 				rra(a);
 		}
-		i++;
 	}
 }
 
 void	sort_5(t_stack *a, t_stack *b)
 {
-	int	i;
-
+	t_node	*current;
+	
 	if (a->top == NULL || a->top->next == NULL)
 		return ;
-	i = 0;
 	pb(a, b);
 	pb(a, b);
 	sort_3(a);
 	reverse_sort_2(b);
-	while (i < 5)
+	while (is_perfectly_sorted(a, 5) == 0)
 	{
 		if (b->top == NULL)
 			rra(a);
 		else
 		{
-			if ((a->top->value) - 1 == b->top->value)
+			current = a->top;
+			while (current->next)
+				current = current->next;
+			if (current->value < b->top->value || a->top->value - 1 == b->top->value)
 				pa(a, b);
 			else
 				rra(a);
 		}
-		i++;
-	}
+	}	
 }

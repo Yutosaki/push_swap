@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errorcase.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasakiyuto <sasakiyuto@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:37 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/10/15 15:10:04 by sasakiyuto       ###   ########.fr       */
+/*   Updated: 2024/11/10 17:39:54 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,24 @@ int	is_valid_integer(char *str)
 			return (0);
 		str++;
 	}
+	return (1);
+}
+
+int is_perfectly_sorted(t_stack *stack, int size)
+{
+	int counter;
+	t_node	*current;
+
+	counter = 0;
+	current = stack->top;
+	while (current && current->next)
+	{
+		if ((current->value) > current->next->value)
+			return (0);
+		current = current->next;
+		counter++;
+	}
+	if (counter < size - 1)
+		return (0);
 	return (1);
 }

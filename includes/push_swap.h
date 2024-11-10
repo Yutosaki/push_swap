@@ -6,7 +6,7 @@
 /*   By: yutsasak <yutsasak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 21:10:39 by sasakiyuto        #+#    #+#             */
-/*   Updated: 2024/11/10 11:47:18 by yutsasak         ###   ########.fr       */
+/*   Updated: 2024/11/10 13:02:52 by yutsasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void				sort_2(t_stack *a);
 void				sort_3(t_stack *a);
 void				sort_4(t_stack *a, t_stack *b);
 void				sort_5(t_stack *a, t_stack *b);
+int 			    is_perfectly_sorted(t_stack *stack, int size);
 
 #endif // PUSH_SWAP_H
